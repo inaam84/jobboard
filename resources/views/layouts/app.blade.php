@@ -15,9 +15,11 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        {{-- <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -31,6 +33,11 @@
             <main>
                 {{ $slot }}
             </main>
+        </div> --}}
+        <div class="text-grey-900">
+            <x-header></x-header>
+            {{ $slot }}
+            <x-footer></x-footer>
         </div>
     </body>
 </html>
