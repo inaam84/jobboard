@@ -10,8 +10,19 @@ Route::get('/', [PostingController::class, 'index'])
 Route::get('/create', [PostingController::class, 'create'])
     ->name('postings.create');
 
+Route::post('/create', [PostingController::class, 'store'])
+    ->name('postings.store');
+
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $postings = auth()->user()->postings;
+
+    return view('dashboard', compact('postings'));
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('/{posting}', [PostingController::class, 'show'])
+    ->name('postings.show');
+
+Route::get('/{posting}/apply', [PostingController::class, 'apply'])
+    ->name('postings.apply');

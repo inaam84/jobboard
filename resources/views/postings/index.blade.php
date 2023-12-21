@@ -16,7 +16,7 @@
         </div>
         <div class="-my-6">
             @foreach ($postings as $posting)
-                <a href="#" class="py-6 px-4 flex flex-wrap md:flex-nowrap border-b border-gray-100 {{ $posting->is_highlighted ? 'bg-yellow-100 hover:bg-yellow-200' : 'bg-white hover:bg-gray-100' }}">
+                <a href="{{ route('postings.show', $posting->slug) }}" class="py-6 px-4 flex flex-wrap md:flex-nowrap border-b border-gray-100 {{ $posting->is_highlighted ? 'bg-yellow-100 hover:bg-yellow-200' : 'bg-white hover:bg-gray-100' }}">
                     <div class="md:w-16 md:mb-0 mb-6 mr-4 flex-shrink-0 flex flex-col">
                         <img src="/storage/{{ $posting->logo }}" alt="{{ $posting->company }} logo" class="w-16 h-16 rounded-full object-cover ">
                     </div>

@@ -11,9 +11,14 @@ class Posting extends Model
 
     protected $guarded = [];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function clicks()
     {
-        return $this->hasnMany(Click::class);
+        return $this->hasMany(Click::class);
     }
 
     public function user()
